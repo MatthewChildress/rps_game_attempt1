@@ -10,33 +10,94 @@
 // be mindful of var/let/const clutter
 
 
-function computerPlay {
-    // computer makes choice
+function computerPlay() {
+    const cpuArray = ['rock', 'paper', 'scissors'];
+    compPick = cpuArray[Math.floor(Math.random() * cpuArray.length)];
+    return compPick;
+
 }
 
-function playerPlay {
 
+function playerPlay() {
+    playerPick = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    if (playerPick == 'rock') {
+        return playerPick;
+    }
+    else if (playerPick == 'paper') {
+        return playerPick;
+    }
+    else if (playerPick == 'scissors') {
+        return playerPick;
+    }
 }
+
+//player input made lowercase and assigned value
+
+
+const computerSelection = computerPlay();
+const playerSelection = playerPlay();
+
+console.log(playerSelection);
+console.log(computerSelection);
+
 
 
 function playRound(playerSelection, computerSelection) {
-    //info for round
+    if (playerSelection == 'rock') {
+        if (computerSelection == 'rock') {
+            matchResult = "T";
+            return matchResult;
+        }
+        else if (computerSelection == 'paper') {
+            matchResult = "L";
+            return matchResult;
+        }
+        else if (computerSelection == 'scissors') {
+            matchResult = "W";
+            return matchResult;
+        }
+    }
+    else if (playerSelection == 'paper') {
+        if (computerSelection == 'rock') {
+            matchResult = "W";
+            return matchResult;
+        }
+        else if (computerSelection == 'paper') {
+            matchResult = "T";
+            return matchResult;
+        }
+        else if (computerSelection == 'scissors') {
+            matchResult = "L";
+            return matchResult;
+        }
+    }
+    else if (playerSelection == 'scissors') {
+        if (computerSelection == 'rock') {
+            matchResult = "L";
+            return matchResult;
+        }
+        else if (computerSelection == 'paper') {
+            matchResult = "W";
+            return matchResult;
+        }
+        else if (computerSelection == 'scissors') {
+            matchResult = "T";
+            return matchResult;
+        }
+    }
 }
 
 
-//sets variables up to become result of Play functions.
-const playerSelection = playerPlay();
-const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
 function game() {
-// has playRound and loops in it
 
+
+    for (let i = 0; i < 5; i++) {
+        
+    }
 }
 
-// loop shown in instructions
-for (let i = 0; i < 5; i++) {
-    //figure out where
-}
+
 
 //use prompt to get player info
