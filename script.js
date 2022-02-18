@@ -5,18 +5,27 @@
 //assign values to rock paper scissors
 //create an array for computer and/or player choices
 // .toLowerCase will make prompt output lowercase
+//try to be as efficient as possible
+//think how each interaction plays against global
+// be mindful of var/let/const clutter
 
 
 function computerPlay {
     // computer makes choice
 }
 
+function playerPlay {
+
+}
+
+
 function playRound(playerSelection, computerSelection) {
     //info for round
 }
 
-const playerSelection = "rock";
-// make playerSelection similar to computerSelection
+
+//sets variables up to become result of Play functions.
+const playerSelection = playerPlay();
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
