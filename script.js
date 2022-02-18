@@ -1,23 +1,19 @@
-//need computerPlay that will randomly return rock,paper,scissors
-//playRound does single round of rock,paper,scissors
 //need strings to RETURN results declaring winner
-// parameters playerSelection & computerSelection are each choice
 //assign values to rock paper scissors
 //create an array for computer and/or player choices
 // .toLowerCase will make prompt output lowercase
-//try to be as efficient as possible
 //think how each interaction plays against global
-// be mindful of var/let/const clutter
 
-
+// sets up player score
+let playerScore = 0;
+let computerScore = 0;
+// computer pick random choice from array
 function computerPlay() {
     const cpuArray = ['rock', 'paper', 'scissors'];
     compPick = cpuArray[Math.floor(Math.random() * cpuArray.length)];
     return compPick;
-
 }
-
-
+//prompt changes to lowercase and returns player choice
 function playerPlay() {
     playerPick = prompt("Rock, Paper, or Scissors?").toLowerCase();
     if (playerPick == 'rock') {
@@ -30,18 +26,13 @@ function playerPlay() {
         return playerPick;
     }
 }
-
-//player input made lowercase and assigned value
-
-
+// declares variables for function results
 const computerSelection = computerPlay();
 const playerSelection = playerPlay();
-
+// shows me what choices were to play test
 console.log(playerSelection);
 console.log(computerSelection);
-
-
-
+// long if, else if to determine winner for a round
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'rock') {
         if (computerSelection == 'rock') {
@@ -50,16 +41,19 @@ function playRound(playerSelection, computerSelection) {
         }
         else if (computerSelection == 'paper') {
             matchResult = "L";
+            computerScore++;
             return matchResult;
         }
         else if (computerSelection == 'scissors') {
             matchResult = "W";
+            playerScore++;
             return matchResult;
         }
     }
     else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
             matchResult = "W";
+            playerScore++;
             return matchResult;
         }
         else if (computerSelection == 'paper') {
@@ -68,16 +62,19 @@ function playRound(playerSelection, computerSelection) {
         }
         else if (computerSelection == 'scissors') {
             matchResult = "L";
+            computerScore++;
             return matchResult;
         }
     }
     else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
             matchResult = "L";
+            computerScore++;
             return matchResult;
         }
         else if (computerSelection == 'paper') {
             matchResult = "W";
+            playerScore++;
             return matchResult;
         }
         else if (computerSelection == 'scissors') {
@@ -86,13 +83,11 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-
-
+// outputs matchResult
 console.log(playRound(playerSelection, computerSelection));
+console.log('Player Score:',playerScore,'COmputer Score:',computerScore);
 
 function game() {
-
-
     for (let i = 0; i < 5; i++) {
         
     }
