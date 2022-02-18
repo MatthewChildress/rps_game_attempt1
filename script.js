@@ -1,98 +1,66 @@
-//need strings to RETURN results declaring winner
-//assign values to rock paper scissors
-//create an array for computer and/or player choices
-// .toLowerCase will make prompt output lowercase
-//think how each interaction plays against global
-
-// sets up player score
-let playerScore = 0;
-let computerScore = 0;
-// computer pick random choice from array
+// lets computer pick from array choices
 function computerPlay() {
     const cpuArray = ['rock', 'paper', 'scissors'];
     compPick = cpuArray[Math.floor(Math.random() * cpuArray.length)];
     return compPick;
 }
-//prompt changes to lowercase and returns player choice
-function playerPlay() {
-    playerPick = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    if (playerPick == 'rock') {
-        return playerPick;
-    }
-    else if (playerPick == 'paper') {
-        return playerPick;
-    }
-    else if (playerPick == 'scissors') {
-        return playerPick;
-    }
-}
-// declares variables for function results
-const computerSelection = computerPlay();
-const playerSelection = playerPlay();
-// shows me what choices were to play test
-console.log(playerSelection);
-console.log(computerSelection);
-// long if, else if to determine winner for a round
+// plays a round. Add integer value to player,computer, and tie score
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == 'rock') {
+    if (playerSelection.toLowerCase() == 'rock') {
         if (computerSelection == 'rock') {
-            matchResult = "T";
-            return matchResult;
+            tieScore++;
+            return tie;
         }
         else if (computerSelection == 'paper') {
-            matchResult = "L";
             computerScore++;
-            return matchResult;
+            return lose;
         }
         else if (computerSelection == 'scissors') {
-            matchResult = "W";
             playerScore++;
-            return matchResult;
+            return win;
         }
     }
-    else if (playerSelection == 'paper') {
+    else if (playerSelection.toLowerCase() == 'paper') {
         if (computerSelection == 'rock') {
-            matchResult = "W";
             playerScore++;
-            return matchResult;
+            return win;
         }
         else if (computerSelection == 'paper') {
-            matchResult = "T";
-            return matchResult;
+            tieScore++;
+            return tie;
         }
         else if (computerSelection == 'scissors') {
-            matchResult = "L";
             computerScore++;
-            return matchResult;
+            return lose;
         }
     }
-    else if (playerSelection == 'scissors') {
+    else if (playerSelection.toLowerCase() == 'scissors') {
         if (computerSelection == 'rock') {
-            matchResult = "L";
             computerScore++;
-            return matchResult;
+            return lose;
         }
         else if (computerSelection == 'paper') {
-            matchResult = "W";
             playerScore++;
-            return matchResult;
+            return win;
         }
         else if (computerSelection == 'scissors') {
-            matchResult = "T";
-            return matchResult;
+            tieScore++;
+            return tie;
         }
     }
 }
-// outputs matchResult
-console.log(playRound(playerSelection, computerSelection));
-console.log('Player Score:',playerScore,'COmputer Score:',computerScore);
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        
-    }
+// parseInt(0) starts at zero and goes up each round depending on condition
+let playerScore = parseInt(0);
+let computerScore = parseInt(0);
+let tieScore = parseInt(0);
+let win = "You win!"
+let lose = "You lose!"
+let tie = "It is a tie! You picked the same as the computer."
+//loop, spits out score.
+for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt("Rock, Paper, or Scissors?");
+    const computerSelection = computerPlay()
+    console.log(playRound(playerSelection, computerSelection))
+    console.log("Your score: " + playerScore);
+    console.log("Computer's score: " + computerScore);
 }
-
-
-
-//use prompt to get player info
