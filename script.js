@@ -1,3 +1,16 @@
+const rockButton = document.querySelector('#rockbutton');
+const paperButton = document.querySelector('#paperbutton');
+const scissorsButton = document.querySelector('#scissorsbutton');
+const playerScore_span = document.getElementById("player-score");
+const computerScore_span = document.getElementById("computer-score");
+const tieScore_span = document.getElementById("tie-score");
+const h2Score = document.getElementById("h2Score");
+const h3Score = document.getElementById("h3Score");
+
+
+
+
+
 // lets computer pick from array choices
 function computerPlay() {
     const cpuArray = ['rock', 'paper', 'scissors'];
@@ -5,83 +18,91 @@ function computerPlay() {
     return compPick;
 }
 
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
-const scissorsButton = document.querySelector('.scissors');
-
-
-
-
-
-
-
 // plays a round. Add integer value to player,computer, and tie score
 function playRound(playerSelection, computerSelection) {
-    this.classList.add('userClick');
+    let playerScore = parseInt(0);
+    let computerScore = parseInt(0);
+    let tieScore = parseInt(0);
     if (playerSelection == 'rock') {
         if (computerSelection == 'rock') {
             tieScore++;
-            return tie;
+            tieScore_span.textContent = tieScore;
+            h2Score.textContent = "You Tied!";
+            h3Score.textcontent = "Rock Just Kinda Clunks Against Rock?";
         }
         else if (computerSelection == 'paper') {
             computerScore++;
-            return lose;
+            computerScore_span.textContent = computerScore;
+            h2Score.textContent = "You Lost!";
+            h3Score.textContent = "Paper Bores Rock Into Submission!";
         }
         else if (computerSelection == 'scissors') {
             playerScore++;
-            return win;
+            playerScore_span.textContent = playerScore;
+            h2Score.textContent = "You Win!";
+            h3Score.textContent = "Rock Hit Scissors! Rock Do Good!"
         }
     }
     else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
             playerScore++;
-            return win;
+            playerScore_span.textContent = playerScore;
+            h2Score.textContent = "You Win!";
+            h3Score.textContent = "Paper Bores Rock Into Submission!";
         }
         else if (computerSelection == 'paper') {
             tieScore++;
-            return tie;
+            tieScore_span.textContent = tieScore;
+            h2Score.textContent = "You Tied!";
+            h3Score.textcontent = "Paper And Paper Would Rather Discuss Theory Together?";
         }
         else if (computerSelection == 'scissors') {
             computerScore++;
-            return lose;
+            computerScore_span.textContent = computerScore;
+            h2Score.textContent = "You Lost!";
+            h3Score.textContent = "Scissors Cuts Paper's Life Into Pieces As A Last Resort!";
         }
     }
     else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
             computerScore++;
-            return lose;
+            computerScore_span.textContent = computerScore;
+            h2Score.textContent = "You Win!";
+            h3Score.textContent = "Rock Hit Scissors! Rock Do Good!";
         }
         else if (computerSelection == 'paper') {
             playerScore++;
-            return win;
+            playerScore_span.textContent = playerScore;
+            h2Score.textContent = "You Win!";
+            h3Score.textContent = "Scissors Cuts Paper's Life Into Pieces As A Last Resort!";
         }
         else if (computerSelection == 'scissors') {
             tieScore++;
-            return tie;
+            tieScore_span.textContent = tieScore;
+            h2Score.textContent = "You Tied!";
+            h3Score.textcontent = "Well This Is Awkward.";            
         }
     }
 }
 
-
-
-
-let win = "You win!"
-let lose = "You lose!"
-let tie = "It is a tie! You picked the same as the computer."
 //loop, spits out score.
-
 for (let i = 0; i < 5; i++) {
-    playerSelection = this.dataset.button;
-    const computerSelection = computerPlay()
-    console.log(playRound(playerSelection, computerSelection))
+    rockButton.addEventListener("click", function() {
+        let playerSelection = 'rock';
+        let computerSelection = computerPlay();
+        playRound(playerSelection,computerSelection);
+    });
+    
+    paperButton.addEventListener("click", function() {
+        let playerSelection = 'paper';
+        let computerSelection = computerPlay();
+        playRound(playerSelection,computerSelection);
+    });
+    
+    scissorsButton.addEventListener("click", function() {
+        let playerSelection = 'scissors';
+        let computerSelection = computerPlay();
+        playRound(playerSelection,computerSelection);
+    });
+    console.log(playRound(playerSelection,computerSelection));
 }
-
-rockButton.addEventListener('click', playRound());
-paperButton.addEventListener('click', playRound());
-scissorsButton.addEventListener('click', playRound());
-
-
-
-
-let count = 0;
-
