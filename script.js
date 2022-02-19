@@ -86,23 +86,20 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //loop, spits out score.
-for (let i = 0; i < 5; i++) {
-    rockButton.addEventListener("click", function() {
-        let playerSelection = 'rock';
-        let computerSelection = computerPlay();
-        playRound(playerSelection,computerSelection);
-    });
-    
-    paperButton.addEventListener("click", function() {
-        let playerSelection = 'paper';
-        let computerSelection = computerPlay();
-        playRound(playerSelection,computerSelection);
-    });
-    
-    scissorsButton.addEventListener("click", function() {
-        let playerSelection = 'scissors';
-        let computerSelection = computerPlay();
-        playRound(playerSelection,computerSelection);
-    });
-    console.log(playRound(playerSelection,computerSelection));
-}
+rockButton.addEventListener("click", function() {
+    let playerSelection = 'rock';
+    let computerSelection = computerPlay();
+    playRound(playerSelection,computerSelection);
+});
+
+paperButton.addEventListener("click", function() {
+    let playerSelection = 'paper';
+    let computerSelection = computerPlay();
+    playRound(playerSelection,computerSelection);
+});
+
+scissorsButton.addEventListener("click", function() {
+    let playerSelection = 'scissors';
+    let computerSelection = computerPlay();
+    playRound(playerSelection,computerSelection);
+});
