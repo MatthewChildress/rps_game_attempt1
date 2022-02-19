@@ -4,9 +4,21 @@ function computerPlay() {
     compPick = cpuArray[Math.floor(Math.random() * cpuArray.length)];
     return compPick;
 }
+
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
+
+
+
+
+
+
+
 // plays a round. Add integer value to player,computer, and tie score
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() == 'rock') {
+    this.classList.add('userClick');
+    if (playerSelection == 'rock') {
         if (computerSelection == 'rock') {
             tieScore++;
             return tie;
@@ -20,7 +32,7 @@ function playRound(playerSelection, computerSelection) {
             return win;
         }
     }
-    else if (playerSelection.toLowerCase() == 'paper') {
+    else if (playerSelection == 'paper') {
         if (computerSelection == 'rock') {
             playerScore++;
             return win;
@@ -34,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
             return lose;
         }
     }
-    else if (playerSelection.toLowerCase() == 'scissors') {
+    else if (playerSelection == 'scissors') {
         if (computerSelection == 'rock') {
             computerScore++;
             return lose;
@@ -49,18 +61,27 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-// parseInt(0) starts at zero and goes up each round depending on condition
-let playerScore = parseInt(0);
-let computerScore = parseInt(0);
-let tieScore = parseInt(0);
+
+
+
+
 let win = "You win!"
 let lose = "You lose!"
 let tie = "It is a tie! You picked the same as the computer."
 //loop, spits out score.
+
 for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Rock, Paper, or Scissors?");
+    playerSelection = this.dataset.button;
     const computerSelection = computerPlay()
     console.log(playRound(playerSelection, computerSelection))
-    console.log("Your score: " + playerScore);
-    console.log("Computer's score: " + computerScore);
 }
+
+rockButton.addEventListener('click', playRound());
+paperButton.addEventListener('click', playRound());
+scissorsButton.addEventListener('click', playRound());
+
+
+
+
+let count = 0;
+
